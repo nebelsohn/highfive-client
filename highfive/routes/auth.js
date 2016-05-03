@@ -1,12 +1,14 @@
 var db_functions = require('../db_logic/db.js')
 
-exports.post = function(res, req, err, success){
+exports.post = function(req, res, err, success){
   var stat = 0;
-  if(req.headers.hasOwnProperty('authorization') && req.headers.authorization == "key") {
-    success(req.body, function(){
-      res.sendStatus(200);
-    });
+  if(req.body.user && req.body.user == "magnus") {
+    if(req.body.pass && req.body.pass == "12345"){
+
+
+    success(res);
+  }
   }else {
-    res.sendStatus(403);
+    err(res);
   }
 }

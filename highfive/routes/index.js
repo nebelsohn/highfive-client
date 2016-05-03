@@ -3,7 +3,8 @@ var router = express.Router();
 var auth = require('./auth.js');
 var status = require('./errorHandling.js');
 var html_dir = '../html/';
-
+var userInfo = require ('./createuser.js');
+var loginInfo = require ('./login.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -11,7 +12,17 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/login', function(req, res) {
-  res.sendFile('../public/index.html');
+    console.log(req, req);
+loginInfo.logindata(req, res, function(token){
+	res.send(token);
+});
+
+});
+
+router.post('/createuser', function(req, res) {
+  userInfo.processdata(req, res, function(){res.send(200)});
+
+
 });
 
 
