@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>highfive WebApp</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="styles/theme.css">
+    <link rel="stylesheet" type="text/css" href="styles/normalize.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="frodeApp">
+  <br><img width="100px" align="right" src="images/hi5.png" ><br>
+    <!-- Add your site or application content here -->
+    <div class="header">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="#/">Login</a>
+            <a class="navbar-brand" href="#/createUser">Create new user</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div id="topHeader">
+    <h1>The place for inspiring new products, everyday!</h1>
+    <h3>Share, rent and exchange your passion!</h3>
+  </div>
+<div id="formlogin">
+  <form action="/login" method="POST">
+    <div class="form-style-8">
+      <h2> Login </h2>
+      <input name="email" type="text" placeholder="E-mail"/>
+      <input name="password" type="password" placeholder"Password" />
+      <input type="submit" value="LOGIN" />
+    </div>
+  </form>
+</div>
+
+</html>
