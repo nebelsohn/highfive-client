@@ -15,7 +15,7 @@ var getPicture = require('./getPicture.js')
 
 /* GET home page. */
 router.get('/', function(req, res) {
-    res.render('pages/index');
+    res.render('pages/index.ejs');
 });
 
 //GET products from products.js
@@ -38,7 +38,7 @@ router.post('/createuser', function(req, res) {
   userInfo.processdata(req, res, function(status){
     //Checks for success or failure in createuser
     if(status == 'OK')
-      res.render('pages/profile.ejs');
+      res.render('pages/connect.ejs');
     else
       res.render('pages/index.ejs');
   });
@@ -73,14 +73,16 @@ router.get('/fbtoken', function(req, res, next) {
     , "client_secret": '4e235742e3cd01a6804360dd8094fd1b'
     , "code": req.query.code
   }, function (err, facebookRes) {
-    res.redirect('/');
     console.log(facebookRes);
     exports.fbToken = facebookRes;
+    res.redirect('/sendFbToken');
+
   });
 });
 
 router.get('/sendFbToken', function(req, res) {
 fbToken.sendToken(req, res, function() {res.send()});
+res.redirect('/');
 });
 
 router.get('/productsListing', function(req, res) {
